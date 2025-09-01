@@ -11,6 +11,15 @@ app.use(express.json());
 app.use('/users', userRouter);
 app.use('/auth', authRouter);
 
+app.use((err, req, res, next)=>{
+    const statusCode = err.statusCode || 500;
+    const message = err.message || "internal server error";
+    return res.status(statusCode).json({
+        succsess: false,
+        statusCode: statusCode,
+        message: message
+    });
+})
 
 const mongo_URL =process.env.mongodb_url;
 connect_to_db(mongo_URL);
