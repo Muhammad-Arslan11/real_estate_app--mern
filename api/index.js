@@ -8,8 +8,8 @@ import connect_to_db from './db/connection.js';
 const app = express();
 dotenv.config();
 app.use(express.json());
-app.use('/users', userRouter);
-app.use('/auth', authRouter);
+app.use('/api/users', userRouter);
+app.use('/api/auth', authRouter);
 
 app.use((err, req, res, next)=>{
     const statusCode = err.statusCode || 500;
