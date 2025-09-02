@@ -40,7 +40,7 @@ export const signIn = async (req, res, next) => {
             return next(errorHandler(401, "Invalid credentials"));
         }
 
-        return res.status(200).json({ message: 'successfully signed in' });
+        return res.status(200).json({ success:true, message: 'successfully signed in' });
     } catch (error) {
         return next(errorHandler(500, "internal server error"));
 
