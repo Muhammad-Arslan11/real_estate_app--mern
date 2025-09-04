@@ -13,6 +13,10 @@ const userSchema = new mongoose.Schema({
     password:{
       type: String,
       required: true
+    },
+    avatar:{
+      type: String,
+      default: "https://www.snia.org/sites/default/files/2025-07/random-user2_12.jpg"
     }
 }, {timestamps: true});
 
